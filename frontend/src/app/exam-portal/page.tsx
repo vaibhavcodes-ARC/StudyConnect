@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Search, GraduationCap, Download, Loader2, Plus, FileText } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
-import api from "@/lib/api";
+import api, { SERVER_URL } from "@/lib/api";
 
 type ExamResource = {
   _id: string;
@@ -137,7 +137,7 @@ export default function ExamPortalPage() {
                 </div>
 
                 <a
-                  href={`http://localhost:5000${resource.uploadedFile}`}
+                  href={`${SERVER_URL}${resource.uploadedFile}`}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-6 flex items-center justify-center gap-2 w-full py-2.5 bg-slate-50 hover:bg-teal-50 text-slate-600 hover:text-teal-700 font-medium rounded-xl transition-colors border border-slate-100"

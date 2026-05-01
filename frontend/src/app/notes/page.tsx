@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { FileText, Loader2, Search, BookOpen, Download, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAuth } from "@/context/AuthContext";
-import api from "@/lib/api";
+import api, { SERVER_URL } from "@/lib/api";
 import Link from "next/link";
 
 export default function NotesPage() {
@@ -112,7 +112,7 @@ export default function NotesPage() {
 
                 <div className="flex gap-3">
                   <a 
-                    href={`http://localhost:5000${note.fileUrl}`}
+                    href={`${SERVER_URL}${note.fileUrl}`}
                     target="_blank"
                     rel="noreferrer"
                     className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-slate-50 text-slate-700 rounded-xl font-semibold text-sm hover:bg-blue-600 hover:text-white transition-all"

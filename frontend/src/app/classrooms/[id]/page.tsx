@@ -10,7 +10,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
-import api from "@/lib/api";
+import api, { SERVER_URL } from "@/lib/api";
 
 type Tab = "syllabus" | "notes" | "assignments";
 
@@ -281,7 +281,7 @@ export default function ClassroomDetailPage() {
                     </div>
                     <div>
                       <p className="font-semibold text-slate-800">Syllabus_Document.pdf</p>
-                      <a href={`http://localhost:5000${classroom.syllabusFile}`} target="_blank" rel="noreferrer" className="text-sm text-blue-600 hover:underline font-medium">Download / View</a>
+                      <a href={`${SERVER_URL}${classroom.syllabusFile}`} target="_blank" rel="noreferrer" className="text-sm text-blue-600 hover:underline font-medium">Download / View</a>
                     </div>
                   </div>
                 ) : (
@@ -319,7 +319,7 @@ export default function ClassroomDetailPage() {
                         </div>
                         <div>
                           <p className="font-bold text-slate-800 line-clamp-1">{note.title}</p>
-                          <a href={`http://localhost:5000${note.fileUrl}`} target="_blank" rel="noreferrer" className="text-sm text-blue-600 mt-3 inline-flex items-center gap-1 font-semibold hover:underline">
+                          <a href={`${SERVER_URL}${note.fileUrl}`} target="_blank" rel="noreferrer" className="text-sm text-blue-600 mt-3 inline-flex items-center gap-1 font-semibold hover:underline">
                             Open file <ArrowLeft className="rotate-180" size={14} />
                           </a>
                         </div>
@@ -381,7 +381,7 @@ export default function ClassroomDetailPage() {
                               {assignment.referenceFiles.map((file: string, fidx: number) => (
                                 <a 
                                   key={fidx} 
-                                  href={`http://localhost:5000${file}`}
+                                  href={`${SERVER_URL}${file}`}
                                   target="_blank"
                                   rel="noreferrer"
                                   className="flex items-center gap-1.5 text-xs text-blue-600 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg transition-colors font-medium border border-blue-100"
