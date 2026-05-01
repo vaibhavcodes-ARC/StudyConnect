@@ -1,0 +1,17 @@
+{
+  "name": "study-connect-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "build": "npm install --workspace=backend",
+    "start": "npm start --workspace=backend",
+    "build:backend": "npm install --workspace=backend",
+    "start:backend": "npm start --workspace=backend",
+    "build:frontend": "npm install --workspace=frontend",
+    "start:frontend": "npm start --workspace=frontend"
+  }
+}
